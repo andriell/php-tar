@@ -10,11 +10,11 @@ namespace ArchiveTar;
 
 class Tar
 {
-    private $outputFile;
+    private $writer;
 
-    public function __construct($outputFilePath)
+    public function __construct(Writer $writer)
     {
-        $this->outputFile = @fopen($outputFilePath, 'a+b');;
+        $this->writer = $writer;
     }
 
     function addFile($fileName, $data, $time = null, $perm = 100766)
@@ -50,19 +50,14 @@ class Tar
         $checksum = sprintf('%6s ', decoct($checksum));
         $binary_data = pack('a8', $checksum);
 
-        @fwrite($this->outputFile, $binary_data_first, 148);
-        @fwrite($this->outputFile, $binary_data, 8);
-        @fwrite($this->outputFile, $binary_data_last, 356);
-        @fwrite($this->outputFile, $data);
+        $this->writer->write($binary_data_first);
+        $this->writer->write($binary_data);
+        $this->writer->write($binary_data_last);
+        $this->writer->write($data);
         $l512 = $dataSize % 512;
         if ($l512 != 0) {
-            @fwrite($this->outputFile, pack('a' . (512 - $l512), ''));
+            $this->writer->write(pack('a' . (512 - $l512), ''));
         }
-    }
-
-    public function close()
-    {
-        fclose($this->outputFile);
     }
 }
 

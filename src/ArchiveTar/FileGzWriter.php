@@ -9,22 +9,22 @@
 namespace ArchiveTar;
 
 
-class FileWriter implements Writer
+class FileGzWriter implements Writer
 {
     private $outputFile;
 
     public function __construct($outputFilePath)
     {
-        $this->outputFile = fopen($outputFilePath, 'wb');;
+        $this->outputFile = gzopen($outputFilePath, 'wb');;
     }
 
     public function write($dataStr)
     {
-        fwrite($this->outputFile, $dataStr);
+        gzwrite($this->outputFile, $dataStr);
     }
 
     public function close()
     {
-        fclose($this->outputFile);
+        gzclose($this->outputFile);
     }
 }
