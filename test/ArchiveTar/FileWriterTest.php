@@ -9,7 +9,7 @@
 namespace ArchiveTar;
 
 
-class FileGzWriterTest extends \PHPUnit_Framework_TestCase
+class FileWriterTest extends \PHPUnit_Framework_TestCase
 {
     public function test1()
     {
