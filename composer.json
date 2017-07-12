@@ -2,7 +2,6 @@
     "name": "andriell/tar",
     "description": "Simple tar writer",
     "type": "library",
-    "version": "1.0.1",
     "keywords": [
         "archive",
         "tar"
