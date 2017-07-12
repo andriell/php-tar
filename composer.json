@@ -1,0 +1,29 @@
+{
+    "name": "andriell/tar",
+    "description": "Simple tar writer",
+    "type": "library",
+    "version": "1.0.0",
+    "keywords": [
+        "archive",
+        "tar"
+    ],
+    "homepage": "https://github.com/andriell/php-tar",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Andrey Rybalko",
+            "email": "root.andriell@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArchiveTar\\": "src/ArchiveTar"
+        }
+    }
+}
