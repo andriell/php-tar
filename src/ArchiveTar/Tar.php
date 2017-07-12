@@ -12,7 +12,7 @@ class Tar
 {
     private $writer;
 
-    public function __construct(Writer $writer)
+    public function __construct(Writer &$writer)
     {
         $this->writer = $writer;
     }
@@ -58,6 +58,11 @@ class Tar
         if ($l512 != 0) {
             $this->writer->write(pack('a' . (512 - $l512), ''));
         }
+    }
+
+    public function close() {
+        $this->writer->write(pack('a' . 1024, ''));
+        $this->writer->close();
     }
 }
 

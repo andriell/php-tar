@@ -12,4 +12,5 @@ namespace ArchiveTar;
 interface Writer
 {
     public function write($dataStr);
+    public function close();
 }

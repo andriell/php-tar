@@ -33,4 +33,8 @@ class StringWriter implements Writer
     {
         return $this->date;
     }
+
+    public function close()
+    {
+    }
 }
