@@ -1,10 +1,12 @@
 {
     "name": "andriell/tar",
-    "description": "Simple tar writer",
+    "description": "Tar / tar.gz writer. You can use it to work with large files without creating temporary files",
     "type": "library",
     "keywords": [
         "archive",
-        "tar"
+        "compression",
+        "tar",
+        "tar.gz"
     ],
     "homepage": "https://github.com/andriell/php-tar",
     "license": "BSD-3-Clause",
